@@ -11,13 +11,17 @@ if not GROQ_API_KEY:
     raise ValueError("GROQ_API_KEY not found in .env file!")
 
 QDRANT_URL = os.getenv("QDRANT_URL", "http://localhost:6333")
+QDRANT_API_KEY = os.getenv("QDRANT_API_KEY", None)
 COLLECTION_NAME = "cves"
 EMBED_MODEL_NAME = "BAAI/bge-small-en-v1.5"
 GROQ_MODEL_NAME = "llama-3.1-8b-instant"
 TOP_K = 5
 
 embed_model = SentenceTransformer(EMBED_MODEL_NAME)
-qdrant_client = QdrantClient(url=QDRANT_URL)
+qdrant_client = QdrantClient(
+    url=QDRANT_URL,
+    api_key=QDRANT_API_KEY,
+)
 groq_client = Groq(api_key=GROQ_API_KEY)
 
 

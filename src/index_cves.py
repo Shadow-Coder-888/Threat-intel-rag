@@ -1,12 +1,21 @@
+import os
 import json
+from dotenv import load_dotenv
 from pathlib import Path
 from qdrant_client import QdrantClient
 from qdrant_client.models import Distance, VectorParams, PointStruct
 from sentence_transformers import SentenceTransformer
 from tqdm import tqdm
 
+load_dotenv()
 
-client = QdrantClient(host="localhost", port=6333)
+QDRANT_URL = os.getenv("QDRANT_URL", "http://localhost:6333")
+QDRANT_API_KEY = os.getenv("QDRANT_API_KEY", None)
+
+client = QdrantClient(
+    url=QDRANT_URL,
+    api_key=QDRANT_API_KEY,
+)
 
 model = SentenceTransformer("BAAI/bge-small-en-v1.5")
 
