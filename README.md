@@ -12,7 +12,9 @@ pinned: false
 A RAG-based cybersecurity chatbot that answers questions about CVE vulnerabilities using real NVD data.
 
 ## 🌐 Live Demo
-👉 [Try it here](https://shadow-coder-888-threat-intel-rag.hf.space/docs)
+
+👉 [Chat UI](https://threat-intel-rag.vercel.app/)
+👉 [API Docs](https://shadow-coder-888-threat-intel-rag.hf.space/docs)
 
 ## 🚀 Features
 - Search 500 real CVEs from NVD database
